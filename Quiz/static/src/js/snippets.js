@@ -1,9 +1,9 @@
-odoo.define('quiz.dynamic.snippet', function (require) {
+odoo.define('question.dynamic.snippet', function (require) {
 'use strict';
 
 var publicWidget = require('web.public.widget');
 
-publicWidget.registry.quiz = publicWidget.Widget.extend({
+publicWidget.registry.question = publicWidget.Widget.extend({
     selector: '.question_snippet',
     disabledInEditableMode: false,
     start: function () {
@@ -14,15 +14,15 @@ publicWidget.registry.quiz = publicWidget.Widget.extend({
             model: 'quiz.question',
             method: 'search_read',
             domain: [],
-            fields: ['name', 'date_release'],
-            orderBy: [{ name: 'date_release', asc: false }],
+            fields: ['name', 'answer', 'create_date'],
+            orderBy: [{ name: 'create_date', asc: false }],
             limit: parseInt(rows)
         }).then(function (data) {
-            _.each(data, function (book) {
+            _.each(data, function (question) {
                 self.$el.append(
                     $('<tr />').append(
-                        $('<td />').text(book.name),
-                        $('<td />').text(book.date_release)
+                        $('<td />').text(question.name),
+                        $('<td />').text(question.answer)
                     ));
             });
         });

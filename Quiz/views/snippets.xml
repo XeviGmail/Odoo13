@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-<template id="snippet_quiz_dynamic" name="Latest Questions">
-    <section class="quiz_list">
+<template id="snippet_question_dynamic" name="Latest Questions">
+    <section class="question_list">
         <div class="container">
             <h2>Latest Questions</h2>
-            <table class="table book_snippet table-striped" data-number-of-questions="5">
+            <table class="table question_snippet table-striped" data-number-of-questions="5">
                 <tr>
                     <th>Question</th>
                     <th>Answer</th>
@@ -15,13 +15,13 @@
     </section>
 </template>
 
-<template id="quiz_snippets_options" inherit_id="website.snippets">
+<template id="question_snippets_options" inherit_id="website.snippets">
     <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
-        <t t-snippet="Quiz.snippet_quiz_dynamic" t-thumbnail="/Quiz/static/src/img/s_book_list.png"/>
+        <t t-snippet="Quiz.snippet_question_dynamic" t-thumbnail="/Quiz/static/src/img/s_book_list.png"/>
     </xpath>
 
     <xpath expr="//div[@id='snippet_options']" position="inside">
-        <div data-selector=".quiz_snippet">
+        <div data-selector=".question_snippet">
             <we-select string="Table Style">
                 <we-button data-select-class="table-striped">Striped</we-button>
                 <we-button data-select-class="table-dark">Dark</we-button>

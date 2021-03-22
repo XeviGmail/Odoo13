@@ -1,5 +1,5 @@
 {
-    'name': 'Quiz',
+    'name': 'Quiz Snippet',
     'version': '0.1',
     'summary': """Quiz""",
     'category': 'Tools',
@@ -12,6 +12,8 @@
         'views/quiz.xml',
         'views/question_statistics.xml',
         'views/settings.xml',
+        'views/templates.xml',
+        'views/snippets.xml',
     ],
     'installable': True,
     'auto_install': False,
