@@ -18,7 +18,9 @@ Learn the WEB model in Odoo13
 
 Versions
 ========
-* 2020-03-22
+* 2021-03-22
+    Snippet that shows the latest 5 elements
+* 2021-03-22
     Quiz Base
 
 Improvements
