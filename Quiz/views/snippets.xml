@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+<template id="snippet_quiz_dynamic" name="Latest Questions">
+    <section class="quiz_list">
+        <div class="container">
+            <h2>Latest Questions</h2>
+            <table class="table book_snippet table-striped" data-number-of-questions="5">
+                <tr>
+                    <th>Question</th>
+                    <th>Answer</th>
+                </tr>
+            </table>
+        </div>
+    </section>
+</template>
+
+<template id="quiz_snippets_options" inherit_id="website.snippets">
+    <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
+        <t t-snippet="Quiz.snippet_quiz_dynamic" t-thumbnail="/Quiz/static/src/img/s_book_list.png"/>
+    </xpath>
+
+    <xpath expr="//div[@id='snippet_options']" position="inside">
+        <div data-selector=".quiz_snippet">
+            <we-select string="Table Style">
+                <we-button data-select-class="table-striped">Striped</we-button>
+                <we-button data-select-class="table-dark">Dark</we-button>
+                <we-button data-select-class="table-bordered">Bordered</we-button>
+            </we-select>
+            <we-button-group string="No of Questions" data-attribute-name="numberOfQuestions">
+                <we-button data-select-data-attribute="5" title="5 Questions">5</we-button>
+                <we-button data-select-data-attribute="10" title="10 Questions">10</we-button>
+                <we-button data-select-data-attribute="15" title="15 Questions">15</we-button>
+            </we-button-group>
+        </div>
+    </xpath>
+</template>
+
+</odoo>

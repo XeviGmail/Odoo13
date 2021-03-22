@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_quiz_quiz_form" model="ir.ui.view">
+        <field name="name">quiz.quiz.form</field>
+        <field name="model">quiz.quiz</field>
+        <field name="arch" type="xml">
+            <form string="Quiz">
+                <sheet>
+                    <notebook>
+                        <page string="Quiz">
+                            <button
+                                attrs="{'invisible':
+                                    [
+                                        ('start_new_game', '=', True),
+                                        ('end_game', '=', False)
+                                    ]}"
+                                string="Start new Game"
+                                name="btn_start_new_game"
+                                type="object"
+                                class="oe_highlight"
+                                tabindex="1"/>
+                            <div><p></p></div>
+                            <div attrs="{'invisible': [('start_new_game', '!=', True)]}">
+                                <field name="statistic_question_counter" widget="percentpie"/>
+                                <field name="statistic_wrong_answers" widget="percentpie"/>
+                                <field name="statistic_correct_answers" widget="percentpie"/>
+                                <field name="count_error_handling"
+                                       attrs="{'invisible':[('fix_errors','=',False)]}"
+                                       widget="percentpie"/>
+                            </div>
+                            <group attrs="{'invisible': [('start_new_game', '!=', True)]}">
+                                <field name="name"/>
+                                <field name="checking_answer" invisible="True"/>
+                                <field name="start_new_game" invisible="True"/>
+                                <field name="end_game" invisible="True"/>
+                                <field name="fix_errors" invisible="True"/>
+                                <field name="user_answer"/>
+                            </group>
+                            <button
+                                attrs="{'invisible': ['|',('start_new_game', '=', False),('checking_answer','=',True)]}"
+                                string="Check Answer"
+                                name="btn_check_answer"
+                                type="object"
+                                tabindex="20"
+                                class="oe_highlight"/>
+                            <group>
+                                <field name="answer" attrs="{'invisible': [('checking_answer','!=', True)]}"/>
+                                <field name="extra" attrs="{'invisible': [('checking_answer','!=', True)]}"/>
+                            </group>
+                            <button
+                                string="Load new Question"
+                                name="btn_load_new_question"
+                                type="object"
+                                tabindex="30"
+                                attrs="{'invisible': ['|',('checking_answer','!=', True),('end_game', '!=', False)]}"
+                                class="oe_highlight"/>
+
+                        </page>
+                        <page string="Setup">
+
+        <!--                    <div t-name="Quiz.template">-->
+        <!--                        <span class="val"><t t-esc="widget.count"/></span>-->
+        <!--                        <button>Increment</button>-->
+        <!--                    </div>-->
+
+                            <group string="Setup">
+                                <field name="default_question_types_ids" widget="many2many_tags"/>
+                                <field name="default_number_of_questions" tabindex="-1"/>
+                            </group>
+                            <button
+                                string="Set as default"
+                                name="btn_set_as_default"
+                                type="object"
+                                tabindex="20"
+                                class="oe_highlight"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_quiz_quiz" model="ir.actions.act_window">
+        <field name="name">Quiz</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">quiz.quiz</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_quiz_quiz_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem action="action_quiz_quiz"
+              id="menu_quiz_quiz"
+              name="Quiz"
+              parent="main_menu_quiz"/>
+
+</odoo>

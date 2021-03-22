@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_question_type_form" model="ir.ui.view">
+        <field name="name">question.type.form</field>
+        <field name="model">question.type</field>
+        <field name="arch" type="xml">
+            <form string="Question Type">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="question_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_question_type_tree" model="ir.ui.view">
+        <field name="name">question.type.tree</field>
+        <field name="model">question.type</field>
+        <field name="arch" type="xml">
+            <tree string="Quiz">
+                <field name="name"/>
+                <field name="question_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_question_type" model="ir.actions.act_window">
+        <field name="name">Question Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">question.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smilling_face">
+                Create a Question Type
+            </p>
+        </field>
+    </record>
+
+    <menuitem action="action_question_type"
+              id="menu_question_type"
+              name="Question Types"
+              parent="main_menu_quiz"/>
+
+</odoo>

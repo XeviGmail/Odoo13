@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_question_statistics_form" model="ir.ui.view">
+        <field name="name">question.statistics.form</field>
+        <field name="model">question.statistics</field>
+        <field name="arch" type="xml">
+            <form string="Question Statistics">
+                <sheet>
+                    <group>
+                        <field name="question_id"/>
+                        <field name="user_id"/>
+                        <field name="asked_times"/>
+                        <field name="correct_answers"/>
+                        <field name="wrong_answers"/>
+                        <field name="last_answer"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_question_statistics_tree" model="ir.ui.view">
+        <field name="name">question.statistics.tree</field>
+        <field name="model">question.statistics</field>
+        <field name="arch" type="xml">
+            <tree string="Quiz Statistics">
+                <field name="question_id"/>
+                <field name="user_id"/>
+                <field name="asked_times"/>
+                <field name="correct_answers"/>
+                <field name="wrong_answers"/>
+                <field name="last_answer"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_question_statistics" model="ir.actions.act_window">
+        <field name="name">Question Statistics</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">question.statistics</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smilling_face">
+                Create a Question Statistics
+            </p>
+        </field>
+    </record>
+
+    <menuitem action="action_question_statistics"
+              id="menu_question_statistics"
+              name="Question Statistics"
+              parent="main_menu_quiz"/>
+
+</odoo>
