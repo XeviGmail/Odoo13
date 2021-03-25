@@ -13,6 +13,15 @@
                         <field name="type_ids" widget="many2many_tags"/>
                         <field name="statistics_ids" widget="many2many_tags"/>
                     </group>
+                    <group string="Question Issues">
+                        <field name="issue_id" nolabel="1">
+                            <tree>
+                                <field name="create_date"/>
+                                <field name="submitted_by"/>
+                                <field name="description"/>
+                            </tree>
+                        </field>
+                    </group>
                 </sheet>
             </form>
         </field>

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
+<!-- Paso 1 -->
 <template id="snippet_question_dynamic" name="Latest Questions">
     <section class="question_list">
         <div class="container">
             <h2>Latest Questions</h2>
+            <button class="btn">Random Number</button>
+
             <table class="table question_snippet table-striped" data-number-of-questions="5">
                 <tr>
                     <th>Question</th>
@@ -15,12 +18,14 @@
     </section>
 </template>
 
+<!-- Paso 2 -->
 <template id="question_snippets_options" inherit_id="website.snippets">
     <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
         <t t-snippet="Quiz.snippet_question_dynamic" t-thumbnail="/Quiz/static/src/img/s_book_list.png"/>
     </xpath>
 
     <xpath expr="//div[@id='snippet_options']" position="inside">
+        <!-- Paso 3 -->
         <div data-selector=".question_snippet">
             <we-select string="Table Style">
                 <we-button data-select-class="table-striped">Striped</we-button>

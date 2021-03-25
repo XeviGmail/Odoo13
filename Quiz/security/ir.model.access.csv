@@ -2,5 +2,6 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 acces_quiz_question,access.quiz.question,model_quiz_question,,1,1,1,1
 acces_question_type,access.question.type,model_question_type,,1,1,1,1
 acces_question_statistics,access.question.statistics,model_question_statistics,,1,1,1,1
+acces_question_issue,access.question.issue,model_question_issue,,1,1,1,1
 
 

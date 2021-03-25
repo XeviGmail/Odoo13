@@ -28,3 +28,9 @@ class Question(models.Model):
         inverse_name='question_id',
         string='Statistics'
     )
+
+    issue_id = fields.One2many(
+        comodel_name='question.issue',
+        inverse_name='question_id',
+        string='Issue'
+    )
