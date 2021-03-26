@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <template id="button_to_share" inherit_id="website_sale.products_item">
+    <template id="button_to_share" inherit_id="website_sale.products_item"
+              customize_show="True" name="Share me! Action">
         <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="inside">
             <div class="js_class d-inline">
                 <button class="btn btn-primary" type="button" role="button">
