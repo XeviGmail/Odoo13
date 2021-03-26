@@ -7,6 +7,7 @@
     'depends': ['base', 'website'],
     'data': [
         'views/product.xml',
+        'views/assets.xml',
     ],
     'installable': True,
     'auto_install': False,

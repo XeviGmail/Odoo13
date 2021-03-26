@@ -3,7 +3,7 @@
     <template id="button_to_share" inherit_id="website_sale.products_item"
               customize_show="True" name="Share me! Action">
         <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="inside">
-            <div class="js_class d-inline">
+            <div class="js_class_button_to_share d-inline">
                 <button class="btn btn-primary" type="button" role="button">
                     <i class="fa fa-share-alt" role="img"/>
                 </button>
