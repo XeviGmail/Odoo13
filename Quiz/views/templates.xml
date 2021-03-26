@@ -15,10 +15,10 @@
                     <i class="fa fa-thumbs-up"/>
                     Question submitted successfully
                 </h3>
-                <h1>Report the another question issue</h1>
+                <h1> Report the another question issue </h1>
             </t>
             <t t-else="">
-                <h1>Report the question issue</h1>
+                <h1> Report the question issue </h1>
             </t>
             <div class="row mt16">
                 <div class="col-6">
@@ -26,7 +26,7 @@
                         <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                         <div class="form-group">
                             <label>Select Question</label>
-                            <select class="form-control" name="book_id">
+                            <select class="form-control" name="question_id">
                                 <t t-foreach="questions" t-as="question">
                                     <option t-att-value="question.id">
                                         <t t-esc="question.name"/>
@@ -35,12 +35,70 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Issue Description</label>
-                            <textarea name="issue_description" class="form-control" placeholder="e.g. the answer is incorrect"/>
+                            <label>Description</label>
+                            <textarea name="description" class="form-control" placeholder="e.g. pages are missing"/>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
+            </div>
+        </div>
+    </t>
+</template>
+
+<template id="questions_ask_question_form" name="Asking Question Form">
+    <t t-js="ctx">
+        console.log('HOLA CARACOLA');
+    </t>
+    <t t-call="website.layout">
+        <div class="container mt32">
+            <div class="form-group">
+                <label>Select Question</label>
+                <t t-set="respuesta" t-value="Ninguna"/>
+                <!-- Drop Down List Box -->
+                <select class="form-control" name="question_id">
+                    <t t-foreach="questions" t-as="question">
+                        <option t-att-value="question.id">
+                            <t t-esc="question.name"/>
+                            <t t-set="answ" t-value="question.answer"/>
+                            <t t-set="respuesta" t-value="question.answer"/>
+                            <t t-if="question.name == 'bet'">
+                                <t t-esc="answ"/>
+                            </t>
+                        </option>
+                        <t t-esc="answ"/>
+                    </t>
+                </select>
+
+                <field class="form-control" name="answer_id">
+                    <t t-foreach="questions" t-as="question">
+                        <t t-if="question.name == 'bet'">
+                            <t t-esc="question.answer"/>
+                        </t>
+                    </t>
+                </field>
+
+                <field class="form-control" name="answer_id_2" id="answ2">
+                    <t t-foreach="questions" t-as="question">
+                        <t t-if="question.name == 'be'">
+                            <h2><span t-field="question.answer"/></h2>
+                        </t>
+                    </t>
+                </field>
+
+                <field class="form-control" name="drop_down_answer_id">
+                    <t t-esc="respuesta"/>
+                </field>
+                <!-- Answer of the question -->
+                <label>Answer of the question</label>
+                <t t-esc="answ"/>
+                <br/>
+                <label>All the questions</label>
+                <t t-foreach="questions" t-as="question">
+                    <t t-esc="question.name"/>
+                    <t t-esc="question.answer"/>
+                    <br/>---------------------------
+                </t>
             </div>
         </div>
     </t>

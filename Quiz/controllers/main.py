@@ -20,3 +20,10 @@ class Main(http.Controller):
             'questions': request.env['quiz.question'].search([]),
             'submitted': post.get('submitted', False)
         })
+
+
+    @http.route('/questions/ask_question', type='http', auth='user', website=True)
+    def questions_ask_question(self, **post):
+        return request.render('Quiz.questions_ask_question_form', {
+            'questions': request.env['quiz.question'].search([]),
+        })

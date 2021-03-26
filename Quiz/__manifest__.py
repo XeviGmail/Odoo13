@@ -14,6 +14,7 @@
         'views/settings.xml',
         'views/templates.xml',
         'views/snippets.xml',
+        'views/issues.xml',
     ],
     'installable': True,
     'auto_install': False,

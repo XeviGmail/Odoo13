@@ -7,7 +7,6 @@
         <div class="container">
             <h2>Latest Questions</h2>
             <button class="btn">Random Number</button>
-
             <table class="table question_snippet table-striped" data-number-of-questions="5">
                 <tr>
                     <th>Question</th>
