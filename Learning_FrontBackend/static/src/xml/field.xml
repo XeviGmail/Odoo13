@@ -10,7 +10,7 @@
                 </h3>
             </div>
             <div class="ml-1">
-                <h1 class="m-0 ml-3" t-esc="widget.value" />
+                <h1 class="m-0 ml-3" t-esc="widget.newValue" />
             </div>
         </div>
     </t>

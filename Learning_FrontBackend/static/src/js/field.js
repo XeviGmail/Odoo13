@@ -9,7 +9,10 @@ odoo.define('Learning_FrontBackend.field', (require) => {
         events: {
             'click .js_reset_field': 'resetShareCount'
         },
-
+        renderElement () {
+            this.newValue = Intl.NumberFormat().format(this.value);
+            this._super(...arguments);
+        },
 //        async resetShareCount(ev){
 //            await this._setValue('0');
 //            this.renderElement();
