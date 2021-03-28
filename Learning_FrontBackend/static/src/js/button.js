@@ -32,7 +32,11 @@ odoo.define('Learning_FrontBackend.button', (require) => {
             });
 
         },
-        clickEvent(ev){
+        async clickEvent(){
+            await this._rpc({
+                route: '/update/share/count',
+                params: {product_id: this.el.dataset.id}
+            });
             Dialog.alert(
                 this,
                 document.location.origin + this.el.dataset.url,
@@ -40,15 +44,12 @@ odoo.define('Learning_FrontBackend.button', (require) => {
                     title: 'Exito!'
                 }
             );
-            return document.location.origin + this.el.dataset.url
         },
-
     });
 
     // registramos el widget en el espacio publico, esto SOLO se ejecutara en el Frontend
     registry.WidgetButton = WidgetButton;
 
     // Esto permite a desarrolladores heredar este widget con require
-    return WidgetButton;
 
 });

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="Learning_FrontBackend.share_button">
+        <div class="border shadow share_count_widget d-inline-flex align-items-center p-2 mx-2">
+            <div class="d-flex align-items-center">
+                <b class="field_title">Current<br/>shares</b>
+                <h3 class="d-flex flex-column ml-2 m-0">
+                    <i type="button" class="fa fa-share-alt text-info mb-1" />
+                    <i type="button" class="fa fa-times text-danger js_reset_field" />
+                </h3>
+            </div>
+            <div class="ml-1">
+                <h1 class="m-0 ml-3" t-esc="widget.value" />
+            </div>
+        </div>
+    </t>
+</templates>

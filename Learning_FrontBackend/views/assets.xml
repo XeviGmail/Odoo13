@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+
+    <!-- Front End -->
     <template id="assets_frontend" inherit_id="website.assets_frontend">
         <xpath expr="//script[last()]" position="after">
             <script src="/Learning_FrontBackend/static/src/js/button.js"/>
         </xpath>
     </template>
+
+    <!-- Backend -->
+    <template id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="//script[last()]" position="after">
+            <script src="/Learning_FrontBackend/static/src/js/field.js"/>
+        </xpath>
+    </template>
+
 </odoo>
