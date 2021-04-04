@@ -1,6 +1,10 @@
 odoo.define('Learning_FrontBackend.field', (require) => {
 
+    // 'web.field_registry' -> importacion especifica para registrar los fields
     const registry = require('web.field_registry');
+
+    // 'web.AbstractField' -> importamos los widgets en el Backend, esto implementa all lo necesario para que se pueda
+    // renderizar all en el Backend
     const Widget = require('web.AbstractField');
 
     const FieldForShare = Widget.extend({
@@ -31,8 +35,7 @@ odoo.define('Learning_FrontBackend.field', (require) => {
 
     });
 
-    console.warn('FUNCIONO')
-
+    // 'share_count_widget' -> el nombre del widget que tendra en los xml
     registry.add('share_count_widget', FieldForShare)
 
 })

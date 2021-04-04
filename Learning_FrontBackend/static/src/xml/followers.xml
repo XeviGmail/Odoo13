@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="mail.Followers.partner">
+        <t t-jquery="button:last-of-type" t-operation="after">
+            <i t-attf-class="{{ record.internal ? 'fa fa-address-book': 'fa fa-globe'}}"
+               t-attf-title="{{ record.internal ? 'Internal': 'External'}}"
+               t-attf-aria-label="{{ record.internal ? 'Internal': 'External'}}"
+               role="img"/>
+        </t>
+    </t>
+</templates>

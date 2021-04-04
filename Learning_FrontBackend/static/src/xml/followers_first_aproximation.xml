@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="mail.Followers.partner">
+        <t t-jquery="button:last-of-type" t-operation="after">
+<!--            <i t-if="record.id > 410"-->
+<!--            <i t-attf-class="{{ record.id==410 ? 'fa fa-globe': '' }}"-->
+
+<!--            <i class="ie_follower fa fa-globe"-->
+<!--            <i t-attf-class="ie_follower fa fa-globe {{record.id}} {{widget.estat}}"-->
+<!--            class="fa fa-globe" -->
+            <t t-foreach="widget.newValue" t-as="value">
+                <i t-if="record.res_id == value[0]"
+                    t-attf-class="{{value[1]}}"
+                    title="External"
+                    aria-label="External"
+                    role="img"/>
+            </t>
+
+<!--            <button class="ie_follower btn btn-danger">Cancel</button>-->
+        </t>
+    </t>
+</templates>
+
+<!--
+    res.partner es el follower.
+    para averiguar si un follower es interno o externo
+    user_ids != 0 es un internal user
+
+
+<i class=".ie_follower fa fa-globe"
+               title="External"
+               aria-label="External"
+               role="img"/>
+-->

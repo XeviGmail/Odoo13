@@ -5,9 +5,10 @@
         <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="inside">
             <div class="js_class_button_to_share d-inline"
                  t-attf-data-url="/shop/product/{{slug(product)}}"
-                 t-att-data-id="product.id">
+                 t-att-data-id="product.id"
+                 t-att-data-name="product.name">
 
-                <button class="btn btn-primary" type="button" role="button">
+                <button class="btn btn-primary share_button" type="button" role="button">
                     <i class="fa fa-share-alt" role="img"/>
                 </button>
             </div>
@@ -27,3 +28,8 @@
         </field>
     </record>
 </odoo>
+
+<!--
+    "o_wsale_product_btn" -> Ya esta predefinido por Odoo para poner ally nuestros añadidos
+    customize_show="True" -> Permite añadir dinamicamente este elemento desde la web
+-->

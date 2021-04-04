@@ -16,6 +16,7 @@
     ],
     'qweb': [
         'static/src/xml/field.xml',
+        'static/src/xml/followers.xml',
     ],
     'installable': True,
     'auto_install': False,

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
+    <!-- "t-name" declara el ID Externo para referirnos a este elemento -->
     <t t-name="Learning_FrontBackend.share_button">
         <div class="border shadow share_count_widget d-inline-flex align-items-center p-2 mx-2">
             <div class="d-flex align-items-center">
