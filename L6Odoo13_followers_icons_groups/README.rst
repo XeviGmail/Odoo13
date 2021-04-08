@@ -21,7 +21,7 @@ Versiones
 
 Identificacion
 ==============
-* Nombre Modulo: Followers Icons Groups
+* Module Name: Followers Icons Groups
 
 * AdderComputer: T3273
 
