@@ -12,7 +12,7 @@ Versiones
 * 2021-04-07 (LEO13-78)
     Añadidos valores por defecto en settings para poder usar el modulo sin tener que ir a settings a cambiar cosas
 * 2021-04-06 (LEO13-78)
-    Modulo finalizado según especificaiones
+    Module completed according to specifications
 * 2021-04-06 (LEO13-78)
     Afegit el settings per poder canviar les icones
 * 2021-04-05 (LEO13-78)
