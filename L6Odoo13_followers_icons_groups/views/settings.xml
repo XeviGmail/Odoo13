@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Settings View -->
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.followers_icons_groups</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="10"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Group Icon Followers" string="Group Icon Followers"
+                     data-key="L6Odoo13_followers_icons_groups">
+                    <h2>Icons - (If a field is emplty, it will be filled with a default value when you Save)</h2>
+                    <div class="row mt16 o_settings_container" name="group_icon_followers" >
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Internal</span>
+                                <div class="text-muted">
+                                    Icon for the Internal User Group
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <label for="internal" string="icon" />
+                                        <field name="internal" class="oe_inline"/>
+                                        <field name="internal_icon" class="fa-2x" widget="name2value"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Portal</span>
+                                <div class="text-muted">
+                                    Icon for the Portal User Group
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <label for="portal" string="icon"/>
+                                        <field name="portal" class="oe_inline"/>
+                                        <field name="portal_icon" class="fa-2x" widget="name2value"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Public</span>
+                                <div class="text-muted">
+                                    Icon for the Public User Group
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <label for="public" string="icon"/>
+                                        <field name="public" class="oe_inline"/>
+                                        <field name="public_icon" class="fa-2x" widget="name2value"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://fontawesome.com/v4.7.0/icons/" target="_blank"><h2>More icons on https://fontawesome.com/v4.7.0/icons/</h2></a>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_location_settings" model="ir.actions.act_window">
+        <field name="name">Group Icon Followers Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_id" ref="res_config_settings_view_form"/>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'L6Odoo13_followers_icons_groups'}</field>
+    </record>
+</odoo>
