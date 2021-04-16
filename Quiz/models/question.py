@@ -5,6 +5,7 @@ from odoo import models, fields
 class Question(models.Model):
     _name = 'quiz.question'
     _description = 'Quiz Questions'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(
         string='Question'

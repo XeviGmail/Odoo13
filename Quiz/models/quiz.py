@@ -27,8 +27,9 @@ class Quiz(models.TransientModel):
         string='Extra'
     )
 
-    default_question_types_ids = fields.Many2many(
+    default_question_type_ids = fields.Many2many(
         comodel_name='question.type',
+        default=lambda self: self.get_setting('question_type_ids'),
         string='Question Types'
     )
 
@@ -154,8 +155,8 @@ class Quiz(models.TransientModel):
             self.checking_answer = False
             self.question_counter += 1
             self.clean_all_fields()
-            print(self.env['quiz.question'].search([('type_ids','in',self.default_question_types_ids.ids)]))
-            question = self.new_question(self.env['quiz.question'].search([('type_ids','in',self.default_question_types_ids.ids)]))
+            print(self.env['quiz.question'].search([('type_ids','in',self.default_question_type_ids.ids)]))
+            question = self.new_question(self.env['quiz.question'].search([('type_ids','in',self.default_question_type_ids.ids)]))
             self.question_id = question.id
             self.name = question.name
             self.answer = question.answer
@@ -281,7 +282,11 @@ class Quiz(models.TransientModel):
         }
 
     def btn_set_as_default(self):
-        self.env['ir.config_parameter'].set_param('Quiz.number_of_questions', self.default_number_of_questions)
+        self.env['res.users'].search([('id', '=', self.env.user.id)]).write({
+            'number_of_questions': self.default_number_of_questions,
+            'question_type_ids': self.default_question_type_ids,
+        })
 
     def get_setting(self, setting):
-        return self.env['ir.config_parameter'].sudo().get_param(f'Quiz.{setting}')
+        selection = self.env['res.users'].search([('id','=', self.env.user.id)])[setting]
+        return selection

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="mail.chatter.Buttons">
+        <t t-jquery="button:first" t-operation="after">
+            <button t-if="newMessageButton" type="button" class="btn btn-link o_chatter_button_new_quest" title="Open Quiz" disabled="disabled">
+                Open New Quiz
+            </button>
+            <button t-if="newMessageButton" type="button" class="btn btn-link o_chatter_button_question_type" title="Open Quiz" disabled="disabled">
+                Open Question Type
+            </button>
+        </t>
+    </t>
+</templates>
