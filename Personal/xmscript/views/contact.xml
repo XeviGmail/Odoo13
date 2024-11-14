@@ -11,6 +11,13 @@
             </tree>
         </field>
     </record>
+    <record id="view_xms_contact_lmap" model="ir.ui.view">
+        <field name="name">view.xms.contact.lmap</field>
+        <field name="model">xms.contact</field>
+        <field name="arch" type="xml">
+            <lmap/>
+        </field>
+    </record>
     <record id="view_xms_contact_form" model="ir.ui.view">
         <field name="name">view.xms.contact.form</field>
         <field name="model">xms.contact</field>
@@ -29,7 +36,7 @@
     <record id="action_xms_contact" model="ir.actions.act_window">
         <field name="name">Contacts</field>
         <field name="res_model">xms.contact</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,lmap</field>
     </record>
     <!--  MENUS  -->
     <menuitem name="XMScript" id="menu_xmscript">
