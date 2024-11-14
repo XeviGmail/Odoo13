@@ -1,0 +1,120 @@
+<odoo>
+    <record id="view_health_record_form" model="ir.ui.view">
+        <field name="name">health.record.form</field>
+        <field name="model">health.record</field>
+        <field name="arch" type="xml">
+            <form string="Health Record">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="user_id" invisible="True"/>
+                            <field name="day"/>
+                            <field name="weight"/>
+<!--                            <field name="weight_history" widget="weight_history_graph"/>-->
+                        </group>
+                        <group>
+                            <field name="glycemic_index"/>
+                            <field name="waist_size"/>
+<!--                            <field name="weight_path" widget="weight_history_graph"/>-->
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Weight Summary">
+                            <group>
+                            </group>
+                        </page>
+                        <page string="Food Intake">
+                            <group>
+                                <field name="remaining_calories"/>
+                            </group>
+                            <field name="food_intake_ids">
+                                <tree editable="top">
+                                    <field name="ingredient_id"/>
+                                    <field name="weight" sum="Total Amount"/>
+                                    <field name="calories" sum="Total Amount"/>
+                                    <field name="glycemic_index"/>
+                                    <field name="glycemic_load" sum="Total Amount"/>
+                                    <field name="carbohydrates" sum="Total Amount"/>
+                                    <field name="fiber" sum="Total Amount"/>
+                                    <field name="protein" sum="Total Amount"/>
+                                    <field name="fat" sum="Total Amount"/>
+                                    <field name="info" optional="hide"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Exercise">
+                            <field name="exercise_ids">
+                                <tree editable="top">
+                                    <field name="exercise_id"/>
+                                    <field name="hours" widget="float_time" sum="Total Amount"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="User Info.">
+                            <group>
+                                <group>
+                                    <field name="sex"/>
+                                    <field name="initial_weight"/>
+                                    <field name="desired_weight"/>
+                                    <field name="activity"/>
+                                    <field name="date_of_birth"/>
+                                    <field name="height"/>
+                                    <field name="tmb"/>
+                                    <field name="gedt"/>
+                                    <field name="caloric_deficit"/>
+                                    <field name="daily_calories"/>
+                                    <field name="diet_type"/>
+                                </group>
+                                <group>
+                                    <field name="target_calculation"/>
+                                    <field name="by_final_day" visibility="target_calculation != 'date'"/>
+                                    <field name="by_interval" visibility="target_calculation != 'weight'"/>
+                                    <field name="by_interval_decrease" visibility="target_calculation != 'weight'"/>
+                                    <field name="final_day" visibility="target_calculation != 'weight'"/>
+<!--
+                                    <field name="by_final_day" attrs="{'invisible': [('target_calculation', '!=', 'date')]}"/>
+                                    <field name="by_interval" attrs="{'invisible': [('target_calculation', '!=', 'weight')]}"/>
+                                    <field name="by_interval_decrease" attrs="{'invisible': [('target_calculation', '!=', 'weight')]}"/>
+                                    <field name="final_day" attrs="{'invisible': [('target_calculation', '!=', 'weight')]}"/>
+-->
+                                    <field name="imc"/>
+                                    <field name="imc_selection"/>
+                                    <field name="weight_low_imb"/>
+                                    <field name="initial_day"/>
+                                    <field name="final_initial_day"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_health_record_tree" model="ir.ui.view">
+        <field name="name">health.record.tree</field>
+        <field name="model">health.record</field>
+        <field name="arch" type="xml">
+            <tree string="Health Record">
+                <field name="user_id"/>
+                <field name="day"/>
+                <field name="weight"/>
+                <field name="glycemic_index"/>
+                <field name="waist_size"/>
+                <field name="exercise"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_health_record" model="ir.actions.act_window">
+        <field name="name">Health Records</field>
+        <field name="res_model">health.record</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('user_id', '=', uid)]</field>
+    </record>
+
+    <menuitem id="menu_health_tracker" name="Health Tracker" sequence="1"/>
+
+    <menuitem id="menu_health_records" name="Health Records" parent="menu_health_tracker" action="action_health_record"/>
+
+</odoo>

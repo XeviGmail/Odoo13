@@ -1,0 +1,50 @@
+<odoo>
+    <record id="view_ingredient_information_form" model="ir.ui.view">
+        <field name="name">ingredient.information.form</field>
+        <field name="model">ingredient.information</field>
+        <field name="arch" type="xml">
+            <form string="Ingredient Information">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="calories"/>
+                        <field name="fiber"/>
+                        <field name="glycemic_index"/>
+                        <field name="carbohydrates"/>
+                        <field name="net_carbohydrates"/>
+                        <field name="protein"/>
+                        <field name="fat"/>
+                        <field name="info"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ingredient_information_tree" model="ir.ui.view">
+        <field name="name">ingredient.information.tree</field>
+        <field name="model">ingredient.information</field>
+        <field name="arch" type="xml">
+            <tree string="Ingredient Information">
+                <field name="name"/>
+                <field name="calories"/>
+                <field name="fiber"/>
+                <field name="glycemic_index"/>
+                <field name="carbohydrates"/>
+                <field name="net_carbohydrates"/>
+                <field name="protein"/>
+                <field name="fat"/>
+                <field name="info" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_ingredient_information" model="ir.actions.act_window">
+        <field name="name">Ingredient Information</field>
+        <field name="res_model">ingredient.information</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ingredient_information" name="Ingredient Information" parent="menu_health_tracker" action="action_ingredient_information"/>
+
+</odoo>

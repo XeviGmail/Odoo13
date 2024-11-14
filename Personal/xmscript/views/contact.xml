@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--  VIEWS  -->
+    <record id="view_xms_contact_list" model="ir.ui.view">
+        <field name="name">view.xms.contact.list</field>
+        <field name="model">xms.contact</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="age"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_xms_contact_form" model="ir.ui.view">
+        <field name="name">view.xms.contact.form</field>
+        <field name="model">xms.contact</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!--  ACTIONS  -->
+    <record id="action_xms_contact" model="ir.actions.act_window">
+        <field name="name">Contacts</field>
+        <field name="res_model">xms.contact</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!--  MENUS  -->
+    <menuitem name="XMScript" id="menu_xmscript">
+        <menuitem name="Contacts" id="menu_xms_contacts" action="action_xms_contact"/>
+    </menuitem>
+</odoo>

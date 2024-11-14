@@ -1,0 +1,38 @@
+<odoo>
+    <record id="view_food_intake_form" model="ir.ui.view">
+        <field name="name">food.intake.form</field>
+        <field name="model">food.intake</field>
+        <field name="arch" type="xml">
+            <form string="Food Intake">
+                <sheet>
+                    <group>
+                        <field name="ingredient_id"/>
+                        <field name="weight"/>
+                        <field name="calories"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_food_intake_tree" model="ir.ui.view">
+        <field name="name">food.intake.tree</field>
+        <field name="model">food.intake</field>
+        <field name="arch" type="xml">
+            <tree string="Food Intake">
+                <field name="ingredient_id"/>
+                <field name="weight"/>
+                <field name="calories"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_food_intake" model="ir.actions.act_window">
+        <field name="name">Food Intake</field>
+        <field name="res_model">food.intake</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_food_intake" name="Food Intake" parent="menu_health_tracker" action="action_food_intake"/>
+
+</odoo>

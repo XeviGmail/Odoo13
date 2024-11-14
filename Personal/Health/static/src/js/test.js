@@ -1,0 +1,3 @@
+/** @odoo-module **/
+
+alert('TESTING')

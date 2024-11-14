@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_health_record,health.record,model_health_record,,1,1,1,1
+access_ingredient_information,ingredient.information,model_ingredient_information,,1,1,1,1
+access_food_intake,food.intake,model_food_intake,,1,1,1,1
+access_exercise_type,exercise.type,model_exercise_type,,1,1,1,1
+access_exercise_line,exercise.line,model_exercise_line,,1,1,1,1

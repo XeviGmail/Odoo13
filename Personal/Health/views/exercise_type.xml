@@ -1,0 +1,34 @@
+<odoo>
+    <record id="view_exercise_type_form" model="ir.ui.view">
+        <field name="name">exercise.type</field>
+        <field name="model">exercise.type</field>
+        <field name="arch" type="xml">
+            <form string="Exercise Type">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_exercise_type_tree" model="ir.ui.view">
+        <field name="name">exercise.type.tree</field>
+        <field name="model">exercise.type</field>
+        <field name="arch" type="xml">
+            <tree string="Exercise Type">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_exercise_type" model="ir.actions.act_window">
+        <field name="name">Exercise Type</field>
+        <field name="res_model">exercise.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_exercise_type" name="Exercise Type" parent="menu_health_tracker" action="action_exercise_type"/>
+
+</odoo>
