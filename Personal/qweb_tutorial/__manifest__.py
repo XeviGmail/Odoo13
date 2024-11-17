@@ -11,9 +11,4 @@
     ],
     "instalable": True,
     "application": True,
-    "assets": {
-        "web.assets_frontend": [
-            "qweb_tutorial/static/src/*",
-        ],
-    },
 }

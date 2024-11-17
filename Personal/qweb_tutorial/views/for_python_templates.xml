@@ -1,6 +1,119 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template id="somePythonTemplate" name="Some Python Template">
-        <h1>QWEB Tutorials</h1>
+        <t t-call="website.layout">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col">
+                        <h1>QWEB - Tutorials</h1>
+                        <br/>
+                        <ul>
+                            <li><h2>Basics</h2></li>
+                        </ul>
+                        <div class="tab-content">
+                            <h3>Data Output</h3>
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th>String</th>
+                                        <td><span t-out="string"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Integer</th>
+                                        <td><span t-out="integer"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Float</th>
+                                        <td><span t-out="some_float"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Boolean</th>
+                                        <td><span t-out="boolean"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>List</th>
+                                        <td><span t-out="some_list"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>List Item [2]</th>
+                                        <td><span t-out="some_list[2]"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Dictionary</th>
+                                        <td><span t-out="some_dictionary"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Dictionary Element [surname]</th>
+                                        <td><span t-out="some_dictionary['surname']"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Function</th>
+                                        <td><span t-out="hello_function"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Model (res_partner)</th>
+                                        <td><span t-out="model"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Model.Field (model[0].name)</th>
+                                        <td><span t-out="model[0].name"/></td>
+                                    </tr>
+<!--                                    <tr>-->
+<!--                                        <th>Editable Model.Field (res_partner[0].date)[Edit Mode]</th>-->
+<!--                                        <td><span t-field="res_partner[0].date" t-options="{'widget': 'datetime', 'dateonly': True}"/></td>-->
+<!--                                    </tr>-->
+                                    <tr>
+                                        <th>Python Object (Datetime)</th>
+                                        <td><span t-out="datetime.datetime.now()"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-content">
+                            <h3>Setting Variables</h3>
+                            <t t-set="string_value" t-value="'Some Variable'"/>
+                            <t t-set="string_literals_value" t-valuef="Some Literal Variable - {{ string }}"/>
+                            <t t-set="expression_value" t-value="1+1"/>
+                            <t t-set="python_object_value" t-value="datetime.datetime.now()"/>
+                            <t t-set="form_controller_value" t-value="model"/>
+                            <t t-set="html_value">
+                                <div class="alert alert-info">
+                                    <h3>This is an HTML Value</h3>
+                                    <p>Add any text here.</p>
+                                </div>
+                            </t>
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th>String</th>
+                                        <td><span t-out="string_value"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>String Literal</th>
+                                        <td><span t-out="string_literals_value"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Expression Value</th>
+                                        <td><span t-out="expression_value"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Python Object Value</th>
+                                        <td><span t-out="python_object_value"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Form Controller Value</th>
+                                        <td><span t-out="form_controller_value"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Form Controller Value</th>
+                                        <td><span t-out="html_value"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
     </template>
 </odoo>
